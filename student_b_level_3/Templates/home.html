@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Climate Data and STATA</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>CLIMATE DATA AND STATA</h1>
+
+    <button>DATE</button>
+    <button>LOCATION</button>
+    <button>RANGE</button>
+
+    <canvas id="climateChart" width="600" height="300"></canvas>
+
+    <script>
+        const years = {{ years | tojson }};
+        const temps = {{ temperatures | tojson }};
+        const rain = {{ rainfalls | tojson }};
+
+        const ctx = document.getElementById('climateChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Temperature (°C)',
+                        data: temps,
+                        borderColor: 'red',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Rainfall (mm)',
+                        data: rain,
+                        borderColor: 'blue',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Climate Trends (2002–2022)'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- 🔗 Navigation links -->
+    <br><br>
+    <p><a href="/level2">→ Go to Level 2: Climate Metric Viewer</a></p>
+    <p><a href="/level3">→ Go to Level 3: Compare Climate Metrics</a></p>
+
+</body>
+</html>

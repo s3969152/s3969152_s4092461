@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level 3 – Compare Climate Metrics</title>
+</head>
+<body>
+    <h1>Compare Climate Metrics</h1>
+
+    <form method="POST">
+        <label for="metric1">Select Metric 1:</label>
+        <select name="metric1" required>
+            <option value="AET">AET</option>
+            <option value="PRCP">PRCP</option>
+            <option value="TMAX">TMAX</option>
+        </select>
+
+        <label for="metric2">Select Metric 2:</label>
+        <select name="metric2" required>
+            <option value="AET">AET</option>
+            <option value="PRCP">PRCP</option>
+            <option value="TMAX">TMAX</option>
+        </select>
+
+        <label for="station_id">Station ID:</label>
+        <input type="number" name="station_id" required>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" required>
+
+        <br><br>
+        <button type="submit">Compare</button>
+    </form>
+
+    {% if results %}
+    <h2>Comparison Results</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>{{ metric1 }}</th>
+            <th>{{ metric2 }}</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
