@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Climate Change Analysis</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../analysis.js"></script> <!-- still here if you want dropdowns to function later -->
+</head>
+<body>
+  <h1>Deep-Dive Analysis of Climate Change</h1>
+
+  <form id="analysisForm">
+    <label for="station">Reference Station:</label>
+    <select id="station">
+      <option value="Melbourne Airport">Melbourne Airport</option>
+      <option value="Ballarat">Ballarat</option>
+      <option value="Bendigo">Bendigo</option>
+    </select>
+
+    <label for="metric">Climate Metric:</label>
+    <select id="metric">
+      <option value="max_temp">Max Temperature</option>
+      <option value="min_temp">Min Temperature</option>
+      <option value="rainfall">Rainfall</option>
+    </select>
+
+    <label for="startPeriod">Start Period (e.g., 2005):</label>
+    <input type="number" id="startPeriod" placeholder="2005" required>
+
+    <label for="endPeriod">End Period (e.g., 2015):</label>
+    <input type="number" id="endPeriod" placeholder="2015" required>
+
+    <label for="numStations">Number of Similar Stations:</label>
+    <input type="number" id="numStations" value="2" min="1" max="10">
+
+    <button type="submit">Compare</button>
+  </form>
+
+  <div id="comparisonResults">
+    <h2>Comparison Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Weather Station</th>
+          <th>Start Avg</th>
+          <th>End Avg</th>
+          <th>% Change</th>
+          <th>Difference from Reference</th>
+        </tr>
+      </thead>
+      <tbody id="comparisonBody">
+        <tr>
+          <td><strong>Melbourne Airport</strong></td>
+          <td>22.5 °C</td>
+          <td>22.7 °C</td>
+          <td>+0.88%</td>
+          <td>0.0% (selected)</td>
+        </tr>
+        <tr>
+          <td>Ballarat</td>
+          <td>17.2 °C</td>
+          <td>17.6 °C</td>
+          <td>+0.23%</td>
+          <td>−0.65%</td>
+        </tr>
+        <tr>
+          <td>Bendigo</td>
+          <td>16.9 °C</td>
+          <td>17.0 °C</td>
+          <td>+0.59%</td>
+          <td>−0.29%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <nav>
+    <a href="../index.html">← Back to Landing Page</a> |
+    <a href="station-view.html">← View Station Summaries</a>
+  </nav>
+</body>
+</html>
