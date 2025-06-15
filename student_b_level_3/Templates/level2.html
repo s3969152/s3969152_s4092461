@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level 2 - Climate Metric Viewer</title>
+</head>
+<body>
+    <h2>Climate Metric Results</h2>
+
+    <form method="POST">
+        <label for="metric">Select Metric:</label>
+        <select name="metric" required>
+            <option value="precip">Precipitation</option>
+            <option value="evap">Evaporation</option>
+            <option value="temp_max">Max Temperature</option>
+            <option value="temp_min">Min Temperature</option>
+        </select><br><br>
+
+        <label for="station_start">Start Station ID:</label>
+        <input type="number" name="station_start" required><br><br>
+
+        <label for="station_end">End Station ID:</label>
+        <input type="number" name="station_end" required><br><br>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" required><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if results %}
+        <h3>Results</h3>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Station ID</th>
+                <th>Date</th>
+                <th>Value</th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        {% if request.method == 'POST' %}
+            <p><strong>No data found for this filter.</strong></p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
