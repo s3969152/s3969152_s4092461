@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Station View - Level 2</title>
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="../station.js"></script>
+</head>
+<body>
+  <h1>Explore Climate by State & Latitude</h1>
+
+  <form id="stationForm">
+    <label for="state">Select State:</label>
+    <select id="state">
+      <option value="WA">Western Australia</option>
+      <option value="NSW">New South Wales</option>
+      <option value="VIC">Victoria</option>
+      <option value="QLD">Queensland</option>
+    </select>
+
+    <label for="latStart">Start Latitude:</label>
+    <input type="number" step="0.01" id="latStart" placeholder="-17.00">
+
+    <label for="latEnd">End Latitude:</label>
+    <input type="number" step="0.01" id="latEnd" placeholder="-20.00">
+
+    <label for="metric">Climate Metric:</label>
+    <select id="metric">
+      <option value="max_temp">Max Temperature</option>
+      <option value="min_temp">Min Temperature</option>
+      <option value="rainfall">Rainfall</option>
+    </select>
+
+    <button type="submit">Filter Data</button>
+  </form>
+
+  <div id="results">
+    <h2>Weather Stations in Selected State</h2>
+    <table id="stationTable">
+      <thead>
+        <tr>
+          <th>Site Name</th>
+          <th>Region</th>
+          <th>Latitude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS will fill this -->
+      </tbody>
+    </table>
+
+    <h2>Summary by Region</h2>
+    <table id="summaryTable">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Stations</th>
+          <th id="summaryMetricTitle">Climate Metric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS will fill this -->
+      </tbody>
+    </table>
+  </div>
+
+  <nav>
+    <a href="../index.html">← Back to Landing Page</a> |
+    <a href="analysis.html">Go to Deep-Dive Analysis →</a>
+  </nav>
+</body>
+</html>

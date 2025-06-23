@@ -1,0 +1,57 @@
+/* General Page Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 2rem;
+}
+
+/* Chart Canvas */
+#climateChart {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;    /* Increased width */
+  height: 500px;         /* Explicit height */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Make sure it adapts to mobile */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: #e3f2fd;
+}
+

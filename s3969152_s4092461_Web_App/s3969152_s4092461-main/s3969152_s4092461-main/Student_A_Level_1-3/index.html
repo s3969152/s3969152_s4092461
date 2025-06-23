@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Climate Change in Australia</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Australian Climate Trends (1970–2020)</h1>
+
+  <section>
+    <h2>Key Climate Facts</h2>
+    <ul>
+      <li><strong>Year Range:</strong> 1970 to 2020</li>
+      <li><strong>Lowest Recorded Temperature:</strong> Charlotte Pass (-23°C)</li>
+      <li><strong>Highest Recorded Rainfall:</strong> Bellenden Ker (8,000+ mm annually)</li>
+      <li><strong>Region with Most Weather Stations:</strong> New South Wales</li>
+    </ul>
+  </section>
+
+  <canvas id="climateChart"></canvas>
+
+
+  <section>
+    <h2>Navigation</h2>
+    <nav>
+      <ul>
+        <li><a href="pages/station-view.html">Explore Weather Stations</a></li>
+        <li><a href="pages/analysis.html">Compare Station Trends</a></li>
+        <li><a href="pages/student_b_level_1/home.html">Go to Sub Task B</a></li>   
+      </ul>
+    </nav>
+  </section>
+
+  <script>
+    const ctx = document.getElementById('climateChart').getContext('2d');
+
+    const climateChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [1970, 1980, 1990, 2000, 2010, 2020],
+        datasets: [
+          {
+            label: 'Avg Max Temperature (°C)',
+            data: [25.1, 25.6, 26.0, 26.8, 27.3, 27.9],
+            borderColor: 'red',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3
+          },
+          {
+            label: 'Avg Rainfall (mm)',
+            data: [520, 510, 505, 490, 475, 460],
+            borderColor: 'blue',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Climate Trends in Australia (1970–2020)'
+          }
+        },
+        scales: {
+          y: {
+            title: {
+              display: true,
+              text: 'Value'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Year'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

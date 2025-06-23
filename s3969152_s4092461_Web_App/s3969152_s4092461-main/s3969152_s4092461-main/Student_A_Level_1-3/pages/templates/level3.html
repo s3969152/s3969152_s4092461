@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Level 3 - Climate Trends</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Level 3: Temperature and Rainfall Over Years</h2>
+    <canvas id="climateChart" width="800" height="400"></canvas>
+
+    <script>
+        const years = {{ years | safe }};
+        const temperatures = {{ temperatures | safe }};
+        const rainfalls = {{ rainfalls | safe }};
+
+        const ctx = document.getElementById('climateChart').getContext('2d');
+        const climateChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Temperature (°C)',
+                        data: temperatures,
+                        borderColor: 'red',
+                        fill: false
+                    },
+                    {
+                        label: 'Rainfall (mm)',
+                        data: rainfalls,
+                        borderColor: 'blue',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
